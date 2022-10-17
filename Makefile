@@ -6,7 +6,7 @@
 #    By: sharnvon <sharnvon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/17 00:02:15 by sharnvon          #+#    #+#              #
-#    Updated: 2022/10/17 00:03:12 by sharnvon         ###   ########.fr        #
+#    Updated: 2022/10/17 15:43:30 by sharnvon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,13 @@ libs:
 restart: cbuild $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 
+norminette:
+	@norminette -R CheckForbiddenSourceHeader $(LIBFT_DIR)/*.c
+	@norminette -R CheckDefine $(LIBFT_DIR)/libft.h
+	@norminette -R CheckForbiddenSourceHeader $(SRC_DIR)/*
+	@norminette -R CheckDefine includes/minishell.h includes/color.h
+
+
 re: fclean all
 
 cbuild:
@@ -84,4 +91,4 @@ fclean: clean
 	make fclean -C $(LIBFT_DIR)
 	$(RM) -f $(NAME)
 
-PHONY: all clean fclean re
+PHONY: all clean fclean re norminette
