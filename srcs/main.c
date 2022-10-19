@@ -6,7 +6,7 @@
 /*   By: sharnvon <sharnvon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 18:52:24 by araiva            #+#    #+#             */
-/*   Updated: 2022/10/16 15:53:48 by sharnvon         ###   ########.fr       */
+/*   Updated: 2022/10/20 03:52:43 by sharnvon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,16 @@ static int	parse_input(char *input, t_shell *shell)
 static char	*handling_input(char *input)
 {
 	char	*line;
+	int		index;
 
+	index = 0;
+	while ((input[index] >= 9 && input[index] <= 13) || input[index] == ' ')
+		index++;
+	if (input[index] == '\0')
+	{
+		free(input);
+		return (NULL);
+	}
 	line = ft_strtrim(input, " \t");
 	free(input);
 	if (ft_strlen(line) == 0)
