@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   signal_handling.c                                  :+:      :+:    :+:   */
+/*   exec_signal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: araiva <tsomsa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,17 +13,6 @@
 #include "minishell.h"
 
 static void	child_signal_handler(int signum);
-
-void	handling_signal(int signo)
-{
-	if (signo == SIGINT)
-	{
-		ft_putchar_fd('\n', STDOUT_FILENO);
-		rl_on_new_line();
-		rl_replace_line("", 0);
-		rl_redisplay();
-	}
-}
 
 void	execution_signal(t_shell *shell, int mode)
 {
@@ -59,7 +48,7 @@ static void	child_signal_handler(int signum)
 	if (signum == SIGINT)
 	{
 		printf("\n");
-		exit(1);
+		exit(130);
 	}
 	else if (signum == SIGQUIT)
 	{

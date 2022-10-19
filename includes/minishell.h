@@ -6,7 +6,7 @@
 /*   By: sharnvon <sharnvon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 22:58:34 by sharnvon          #+#    #+#             */
-/*   Updated: 2022/10/16 23:58:14 by sharnvon         ###   ########.fr       */
+/*   Updated: 2022/10/14 22:26:18 by sharnvon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@
 # define DEFUALT	2
 
 # define DELNL "\033[C"
-# define FIELDS	" \t\n"
+# define FIELDS	" \t\n\0"
 # define QUOTES	"'\""
 
 # define IN_FILE ".temporary_for_collecting_infile_u_cannot_see_this_3saatoooo"
@@ -202,7 +202,6 @@ int		execution_change_directory(t_shell *shell, char **command);
 
 // main function
 void	minishell_init(t_shell *shell);
-void	minishell_clear(t_shell *shell);
 t_list	*split_input(char *line);
 t_list	*parse_token(t_list *tokens, t_shell *shell);
 t_list	*group_cmd(t_list *token);
@@ -233,7 +232,6 @@ void	free_arr(char **arr);
 void	print_arr(char **str);
 void	print_lst(t_list *lst);
 void	print_cmd_table(t_list *cmds);
-
 void	handling_signal(int signo);
 
 #endif

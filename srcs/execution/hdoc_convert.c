@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell_heredoc_convert.c                        :+:      :+:    :+:   */
+/*   hdoc_convert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharnvon <sharnvon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 01:30:39 by sharnvon          #+#    #+#             */
-/*   Updated: 2022/10/16 23:56:06 by sharnvon         ###   ########.fr       */
+/*   Updated: 2022/10/13 18:12:55 by sharnvon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_env	*convert_env_find(t_shell *shell, char *str, int *i)
 	t_env	*env;
 	int		len;
 
-	len = 0;
 	env = shell->env;
+	len = 0;
 	while (ft_isalnum(str[(*i + 1) + len]) == 1 || str[(*i + 1) + len] == '_')
 		len++;
 	env_name = (char *)ft_calloc(sizeof(char), len + 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sharnvon <sharnvon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tsomsa <tsomsa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 10:36:50 by tsomsa            #+#    #+#             */
-/*   Updated: 2022/10/16 23:58:56 by sharnvon         ###   ########.fr       */
+/*   Updated: 2022/02/22 11:20:13 by tsomsa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 char	*my_strcat(char *s1, char *s2);
-int		my_strmatch(char *str, char *srch);
 
 #endif
